@@ -1,0 +1,8 @@
+lab assignmnet 3: CRUD application angular + product store application
+
+	Product 
+	id
+	name
+	price
+	discount
+

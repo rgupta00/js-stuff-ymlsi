@@ -1,0 +1,253 @@
+nodejs lab
+------------
+https://stackoverflow.com/questions/36636790/how-node-js-is-different-from-tomcat
+
+What is nodejs?
+-----------------
+Plateform for javascript frameworks
+Express and Angular built on top of nodejs
+used for serverside programs, server side
+
+
+
+
+1. hello world:
+------------------
+node first.js
+
+
+var a = 10;
+for(var i=1;i<=5;i++){
+    console.log(a + " * " + i + " = " + a*i );
+}
+
+
+
+2.. use of custome module
+------------------------
+node second.js
+
+
+circle.js
+----------
+var PI = Math.PI;
+
+exports.area = function (r) {
+  return PI * r * r;
+};
+
+exports.circumference = function (r) {
+  return 2 * PI * r;
+};
+
+
+
+second.js
+-----------
+//How to use a module
+
+var circle = require('./circle.js');
+var area = circle.area(4);
+console.log( 'The area of a circle of radius 4 is '+ area);
+
+
+
+
+
+
+
+3. File writing
+---------------------
+node third.js
+
+
+
+
+third.js
+-------
+
+var fs = require('fs');
+
+var data = 'Hello World!';
+
+fs.writeFile('test.txt', data, function (err) {
+  if (err) 
+	return console.log(err);
+  
+  console.log('Hello World > test.txt');
+});
+console.log('testing');
+
+
+test.txt
+--------
+Hello World!
+
+
+
+
+
+4. file writing
+-----------------
+node fileread.js
+
+
+
+
+fileread.js
+---------------
+
+var fs = require('fs');
+fs.readFile('test.txt', 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log(data);
+});
+
+
+reading file synch:
+---------------------
+var fs = require('fs');
+console.log('file reading starting');
+var data= fs.readFileSync('test.txt');
+console.log(data.toString());
+console.log('file reading finished');
+
+
+5. file reading and writing
+----------------------------
+node filereadwrite.js
+
+
+
+filereadwrite.js
+----------------
+var fs = require('fs');
+
+//Read from one file and write to other
+var srcPath = "text1.txt";
+var savPath = "text2.txt";
+
+	fs.readFile(srcPath, 'utf8', function (err, data) {
+            if (err) throw err;
+            
+            fs.writeFile (savPath, data, function(err) {
+                if (err) throw err;
+                console.log('complete');
+            });
+        });
+
+
+
+6. connecting with mysql
+----------------------------
+
+npm install mysql
+
+
+node mysqltest.js
+pause
+
+
+mysql_demo.js
+
+
+https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
+
+mysqltest.js
+---------------
+var mysql      = require('mysql');
+ var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'root',
+  database : 'test'
+});
+connection.query('SELECT * from student', function(err, rows, fields) {
+      if (!err){
+            console.log('The solution is: ', rows);
+            console.log('length:' + erver Side JavaScript Looprows.length);
+          
+          for(var i=0;i<rows.length;i++){
+              var row = rows[i];
+              console.log(row.id + "," + row.name + "," + row.city + "," + row.age);
+          }
+      }
+      else
+        console.log('Error while performing Query.');
+    });//end of query
+
+ connection.end();
+
+
+
+
+7. creating hello world server
+----------------------------------
+node server.js
+
+
+
+server.js
+---------
+var http = require("http");
+
+var srvr = http.createServer(function (request, response) {
+	//console.log(request);
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+	response.end('Hello World\n');
+
+});
+
+srvr.listen(8081);
+
+console.log('Server running at http://127.0.0.1:8081/');
+
+
+
+8. nodejs with mysql database
+----------------------------------
+
+
+npm install mysql
+
+//npm install mysql
+
+var mysql      = require('mysql');
+
+ var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'root',
+  database : 'test'
+});
+
+	connection.query('SELECT * from student', function(err, rows, fields) {
+       
+      if (!err){
+            console.log('The solution is: ', rows);
+            console.log('length:' + rows.length);
+          
+          for(var i=0;i<rows.length;i++){
+              var row = rows[i];
+              console.log(row.id + "," + row.name + "," + row.city + "," + row.age);
+          }
+      }
+      else
+        console.log('Error while performing Query.');
+    });//end of query
+
+	connection.end();
+
+
+
+
+
+
+
+
+
+
+
+

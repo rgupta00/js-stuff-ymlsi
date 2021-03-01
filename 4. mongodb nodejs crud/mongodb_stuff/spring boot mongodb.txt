@@ -1,0 +1,79 @@
+
+Step 1: create spring boot with web mongodb dependency
+
+Step 2: 
+
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=mongodb
+spring.data.mongodb.repositories.enabled=true
+server.port=8095
+
+
+
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+@EnableMongoRepositories(basePackageClasses = UserRepository.class)
+@Configuration
+public class MongoDBConfig {
+
+
+    @Bean
+    CommandLineRunner commandLineRunner(UserRepository userRepository) {
+        return strings -> {
+            userRepository.save(new Users(1, "Peter", "Development", 3000L));
+            userRepository.save(new Users(2, "Sam", "Operations", 2000L));
+        };
+    }
+
+}
+
+
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Users {
+
+    @Id
+    private Integer id;
+    private String name;
+    private String teamName;
+    private Long salary;
+
+
+
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface UserRepository extends MongoRepository<Users, Integer> {
+}
+
+
+
+
+
+
+
+
+@RestController
+@RequestMapping("/rest/users")
+public class UsersResource {
+
+    private UserRepository userRepository;
+
+    public UsersResource(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @GetMapping("/all")
+    public List<Users> getAll() {
+        return userRepository.findAll();
+    }
+}

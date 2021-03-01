@@ -1,0 +1,19 @@
+Mini application with spring rest and angular 8:
+--------------------
+event management
+=> free event 
+=> special event
+
+anybody can join free event, even without registratin
+but for special event only register user are allowed
+
+if a visitor comes he can visit to a list of free events and he 
+can register to it
+for reg to special event he need to first register, then only he
+can login to see the speical events... he can register for spe
+event after paying a amount, paypal (not going to use it)
+we can create a fake ui to accept payment details and then allow
+him to register for that event
+
+=> we also have a admin that can enter new events
+=> he can add/remove/change event
