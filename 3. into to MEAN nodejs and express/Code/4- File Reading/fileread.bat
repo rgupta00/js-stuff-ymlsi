@@ -1,2 +1,0 @@
-node fileread.js
-pause

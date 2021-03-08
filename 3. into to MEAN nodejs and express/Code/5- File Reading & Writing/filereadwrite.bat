@@ -1,2 +1,0 @@
-node filereadwrite.js
-pause

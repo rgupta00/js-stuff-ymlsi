@@ -203,43 +203,4 @@ data.then((item)=>{
 }).catch((err)=>{
     console.log("err")
 })
-13. module concept in es 6
-________________________
-	Why we need module?
-	import and export function
-	what is default export and normal export
-	import class with diff ways
-
-	=> We want to use some code of an js file in other file and it have same name of method/ classess
-	we have confusion (aka package java)
-
-	=> for using module we need live server
-
-Consider:
-________
-main.js
-_______
-function foo(){
-    console.log('hello function from main.js')
-}
-
-main2.js
-_______
-function foo(){
-    console.log('hello function from main2.js')
-}
-
-now when we refer foo() in html:
-________________________________
- <script src='main2.js'></script>
- <script src='main.js'></script>
-
-....
-<script>
-   foo();
-</script>
-
-	=> which method is called depend on order of js file :(
-
-
 

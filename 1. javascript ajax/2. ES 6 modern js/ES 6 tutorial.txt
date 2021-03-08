@@ -57,16 +57,22 @@ __________________
 a). scoping problem
 ________________
 
+
 	=> scope of js variable is by default method scope ie
 	=> C/Java are block scoped NOT IN JS
 
 	eX:
 
+
 	var flag=true;
 	if(flag){
 		var fname="rajeev";
 	}
-	
+	console.log(fname); // can be accessed
+
+
+
+
 	=> our understanding ( from C) is that the life of fname should be within the block!
 
 	var flag=true;
@@ -83,6 +89,7 @@ ________________
 		var fname="rajeev";
 		console.log(fname +": " + i);
 	}
+
 
 	console.log(i);//still accessable?
 
@@ -108,6 +115,7 @@ what is op?
 
 console.log(x);
 var x=33;
+
 
 op: undefined ! hoisting problem
 
@@ -163,6 +171,20 @@ function greetPerson(name){
 
     console.log(greet);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 => var is declared two time! its ok in js
@@ -255,6 +277,15 @@ console.log(b);
 
 	=> let is blocked scope ( as it happens in c/c++/java)
 	=> var is function scope
+
+
+
+
+
+
+
+
+
 
 
 

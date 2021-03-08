@@ -1,2 +1,0 @@
-node first.js
-pause

@@ -41,7 +41,7 @@ installation: npm install -g typescript
 
 tsc demo.ts --watch
 
-tsc ex.ts --outDir js
+
 
 run tsc command to check version
 
@@ -220,7 +220,7 @@ interface Musician extends Person {
 } 
 
 
-var drummer = <Musician>{}; 
+let drummer = <Musician>{}; 
 drummer.age = 27 
 drummer.instrument = "Drums" 
 console.log("Age:  "+drummer.age) console.log("Instrument:  "+drummer.instrument)
@@ -248,6 +248,34 @@ console.log("Reading attribute value Engine as :  "+obj.engine)
 
 obj.disp()
 
+
+https://dev.to/satansdeer/typescript-constructor-shorthand-3ibd
+
+
+Inheritance ex :
+________________
+
+
+
+class Emp{
+    
+    constructor( private name: string, private add:string){
+    }
+    print():void{
+        console.log(`the person details are ${this.name}and ${this.add}`)
+    }
+}
+class Programmer extends Emp{
+   
+    constructor( name: string,  add:string, private pl: string){
+        super(name, add);
+       
+    }
+    print():void{
+        super.print();
+        console.log(`the person details are ${this.pl}`)
+    }
+}
 
 
 
@@ -383,4 +411,10 @@ create folders src and output
 
 What we can config
 Try out with  some configuration
+
+
+
+
+https://www.tutorialsteacher.com/typescript/typescript-class
+
 

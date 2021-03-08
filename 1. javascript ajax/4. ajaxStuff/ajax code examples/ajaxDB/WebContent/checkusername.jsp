@@ -6,7 +6,7 @@
 
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection con = DriverManager.getConnection(
-			"jdbc:mysql://localhost:3306/kr_jdbc",
+			"jdbc:mysql://localhost:3306/ymsdemo3",
 			"root", "root");
 	Statement st = con.createStatement();
 	ResultSet rs = st
